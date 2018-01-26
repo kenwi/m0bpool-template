@@ -7,7 +7,7 @@
                 <div class="circle-tile-description text-faded">
                   <p class="h5 up-more">My Hashrate</p>
                   <div class="circle-tile-number text-faded up">
-                    <span class="overview" id="b-hashrate">{($GLOBAL.userdata.hashrate * (60*1000))|number_format}</span>
+                    <span class="overview" id="b-hashrate">{$GLOBAL.userdata.hashrate|number_format}</span>
                     <span class="overview-mhs"> H/m</span>
                     <br>
                     <span class="personal-hashrate-bar spark-18"></span>
@@ -25,7 +25,7 @@
                 <div class="circle-tile-description text-faded">
                   <p class="h5 up-more">Pool Hashrate</p>
                   <div class="circle-tile-number text-faded up">
-                    <span class="overview" id="b-poolhashrate">{($GLOBAL.hashrate * (60*1000))|number_format}</span>
+                    <span class="overview" id="b-poolhashrate">{$GLOBAL.hashrate|number_format}</span>
                     <span class="overview-mhs"> H/m</span>
                     <br>
                     <span class="pool-hashrate-bar spark-18"></span>
@@ -43,7 +43,7 @@
                 <div class="circle-tile-description text-faded">
                   <p class="h5 up-more">My Sharerate</p>
                   <div class="circle-tile-number text-faded up">
-                    <span class="overview" id="b-sharerate">{$GLOBAL.userdata.sharerate * 3600|number_format}</span>
+                    <span class="overview" id="b-sharerate">{$GLOBAL.userdata.sharerate|number_format}</span>
                     <span class="overview-mhs"> S/h</span>
                     <br>
                     <span class="personal-sharerate-bar spark-18"></span>
