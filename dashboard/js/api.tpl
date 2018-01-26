@@ -44,9 +44,9 @@ $(document).ready(function(){
   // Load initial sparkline values
   var storedPersonalHashrate = [ null, null, null, null, null, null, null, null, null, null, null, null, {/literal}{($GLOBAL.userdata.hashrate * 60 * 1000)|round:"2"}{literal} ];
   var storedPersonalSharerate = [ null, null, null, null, null, null, null, null, null, null, null, null, {/literal}{($GLOBAL.userdata.sharerate * 60 * 1000)|round:"2"}{literal} ];
-  var storedPoolHashrate = [ null, null, null, null, null, null, null, null, null, null, null, null, {/literal}{$GLOBAL.hashrate|round:"2"}{literal} ];
-  var storedNetHashrate = [ null, null, null, null, null, null, null, null, null, null, null, null, {/literal}{$GLOBAL.nethashrate|round:"2"}{literal} ];
-  var storedPoolWorkers = [ null, null, null, null, null, null, null, null, null, null, null, null, {/literal}{$GLOBAL.workers}{literal} ];
+  var storedPoolHashrate = [ null, null, null, null, null, null, null, null, null, null, null, null, {/literal}{($GLOBAL.hashrate * 60 * 1000)|round:"2"}{literal} ];
+  var storedNetHashrate = [ null, null, null, null, null, null, null, null, null, null, null, null, {/literal}{($GLOBAL.nethashrate * 60 * 1000)|round:"2"}{literal} ];
+  var storedPoolWorkers = [ null, null, null, null, null, null, null, null, null, null, null, null, {/literal}{($GLOBAL.workers)}{literal} ];
   var storedCoinPrice = [ null, null, null, null, null, null, null, null, null, null, null, null,
                           null, null, null, null, null, null, null, null, null, null, null, null,
                           null, null, null, null, null, null, null, null, null, null, null, null,
