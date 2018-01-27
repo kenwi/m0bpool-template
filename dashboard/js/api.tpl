@@ -87,22 +87,22 @@ $(document).ready(function(){
   function refreshInformation(data) {
     // Drop one value, add the latest new one to each array
     storedPersonalHashrate.shift();
-    storedPersonalHashrate.push(parseFloat(data.getdashboarddata.data.personal.hashrate * 1000 * 60).toFixed(2))
+    storedPersonalHashrate.push(parseFloat(data.getdashboarddata.data.personal.hashrate ).toFixed(2))
     storedPersonalSharerate.shift();
-    storedPersonalSharerate.push(parseFloat(data.getdashboarddata.data.personal.sharerate * 1000 * 60).toFixed(2))
+    storedPersonalSharerate.push(parseFloat(data.getdashboarddata.data.personal.sharerate).toFixed(2))
     storedPoolHashrate.shift();
-    storedPoolHashrate.push(parseFloat(data.getdashboarddata.data.pool.hashrate * 1000 * 60).toFixed(2))
+    storedPoolHashrate.push(parseFloat(data.getdashboarddata.data.pool.hashrate).toFixed(2))
     storedNetHashrate.shift();
-    storedNetHashrate.push(parseFloat(data.getdashboarddata.data.network.hashrate * 1000 * 60).toFixed(2))
+    storedNetHashrate.push(parseFloat(data.getdashboarddata.data.network.hashrate).toFixed(2))
     storedPoolWorkers.shift();
     storedPoolWorkers.push(parseFloat(data.getdashboarddata.data.pool.workers).toFixed(8));
     storedCoinPrice.shift();
     storedCoinPrice.push(parseFloat(data.getdashboarddata.data.pool.price).toFixed(8));
     // Redraw all bar graphs
-    $('.personal-hashrate-bar').sparkline(storedPersonalHashrate, sparklineBarOptions);
-    $('.personal-sharerate-bar').sparkline(storedPersonalSharerate, sparklineBarOptions);
-    $('.pool-hashrate-bar').sparkline(storedPoolHashrate, sparklineBarOptions);
-    $('.pool-nethashrate-bar').sparkline(storedNetHashrate, sparklineBarOptions);
+    $('.personal-hashrate-bar').sparkline(storedPersonalHashrate * 1000 * 60, sparklineBarOptions);
+    $('.personal-sharerate-bar').sparkline(storedPersonalSharerate * 1000 * 60, sparklineBarOptions);
+    $('.pool-hashrate-bar').sparkline(storedPoolHashrate * 1000 * 60, sparklineBarOptions);
+    $('.pool-nethashrate-bar').sparkline(storedNetHashrate * 1000 * 60, sparklineBarOptions);
     $('.pool-workers-bar').sparkline(storedPoolWorkers, sparklineBarOptions);
   {/literal}{if $GLOBAL.config.price.enabled}{literal}
     $('.coin-price-line').sparkline(storedCoinPrice, sparklineLineOptions);
@@ -175,7 +175,7 @@ $(document).ready(function(){
     $('#b-workers').html('');
     for (var i = j = 0; i < length; i++) {
       if (workers[i].hashrate > 0) {
-        totalHashrate += workers[i].hashrate;
+        totalHashrate += workers[i].hashrate * 1000 * 60;
         j++;
         $('#b-workers').append('<tr><td class="text-left">' + workers[i].username + '</td><td class="text-right">' + number_format(workers[i].hashrate, 2) + '</td><td class="text-right">' + workers[i].difficulty + '</td></tr>');
       }
