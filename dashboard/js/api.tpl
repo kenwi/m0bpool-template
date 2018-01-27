@@ -43,7 +43,7 @@ $(document).ready(function(){
 
   // Load initial sparkline values
   var storedPersonalHashrate = [ null, null, null, null, null, null, null, null, null, null, null, null, {/literal}{($GLOBAL.userdata.hashrate * 1000 * 60)|round:"2"}{literal} ];
-  var storedPersonalSharerate = [ null, null, null, null, null, null, null, null, null, null, null, null, {/literal}{($GLOBAL.userdata.sharerate * 1000 * 60)|round:"2"}{literal} ];
+  var storedPersonalSharerate = [ null, null, null, null, null, null, null, null, null, null, null, null, {/literal}{($GLOBAL.userdata.sharerate * 60 * 60)|round:"2"}{literal} ];
   var storedPoolHashrate = [ null, null, null, null, null, null, null, null, null, null, null, null, {/literal}{($GLOBAL.hashrate * 1000 * 60)|round:"2"}{literal} ];
   var storedNetHashrate = [ null, null, null, null, null, null, null, null, null, null, null, null, {/literal}{($GLOBAL.nethashrate * 1000 * 60)|round:"2"}{literal} ];
   var storedPoolWorkers = [ null, null, null, null, null, null, null, null, null, null, null, null, {/literal}{($GLOBAL.workers)}{literal} ];
@@ -100,7 +100,7 @@ $(document).ready(function(){
     storedCoinPrice.push(parseFloat(data.getdashboarddata.data.pool.price).toFixed(8));
     // Redraw all bar graphs
     $('.personal-hashrate-bar').sparkline(storedPersonalHashrate * 1000 * 60, sparklineBarOptions);
-    $('.personal-sharerate-bar').sparkline(storedPersonalSharerate * 1000 * 60, sparklineBarOptions);
+    $('.personal-sharerate-bar').sparkline(storedPersonalSharerate * 60 * 60, sparklineBarOptions);
     $('.pool-hashrate-bar').sparkline(storedPoolHashrate * 1000 * 60, sparklineBarOptions);
     $('.pool-nethashrate-bar').sparkline(storedNetHashrate * 1000 * 60, sparklineBarOptions);
     $('.pool-workers-bar').sparkline(storedPoolWorkers, sparklineBarOptions);
@@ -122,7 +122,7 @@ $(document).ready(function(){
     } else {
       $('#b-nethashrate').html('n/a');
     }
-    $('#b-sharerate').html((parseFloat(data.getdashboarddata.data.personal.sharerate * 1000 * 60).toFixed(2)));
+    $('#b-sharerate').html((parseFloat(data.getdashboarddata.data.personal.sharerate * 60 * 60).toFixed(2)));
     $('#b-yvalid').html(number_format(data.getdashboarddata.data.personal.shares.valid, {/literal}{$GLOBAL.config.sharediffprecision}{literal}));
     $('#b-yivalid').html(number_format(data.getdashboarddata.data.personal.shares.invalid, {/literal}{$GLOBAL.config.sharediffprecision}{literal}));
     if ( data.getdashboarddata.data.personal.shares.valid > 0 ) {
