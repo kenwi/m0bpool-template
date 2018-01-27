@@ -12,6 +12,7 @@
               <th>User Name</th>
               <th class="text-right">kH/m</th>
               <th class="text-right">{$GLOBAL.config.currency}/Day</th>
+              <th class="text-right">{$GLOBAL.config.currency}/Week</th>
               {if $GLOBAL.config.price.enabled}
               {if $GLOBAL.config.price.currency}<th class="text-right">{$GLOBAL.config.price.currency}/Day</th>{/if}
                {/if}
@@ -28,6 +29,7 @@
               <td>{if $CONTRIBHASHES[contrib].is_anonymous|default:"0" == 1 && $GLOBAL.userdata.is_admin|default:"0" == 0}anonymous{else}{$CONTRIBHASHES[contrib].account|escape}{/if}</td>
               <td class="text-right">{($CONTRIBHASHES[contrib].hashrate*60)|number_format:"3"}</td>
               <td class="text-right">{$estday|number_format:"3"}</td>
+              <td class="text-right">{($estday * 7)|number_format:"3"}</td>
               {if $GLOBAL.config.price.enabled}
               {if $GLOBAL.config.price.currency}<td class="text-right">{($estday * $GLOBAL.price)|default:"n/a"|number_format:"4"}</td>{/if}
               {/if}
@@ -41,6 +43,7 @@
               <td>{$GLOBAL.userdata.username|escape}</td>
               <td class="text-right">{($GLOBAL.userdata.rawhashrate)|number_format}</td>
               <td class="text-right">{$myestday|number_format:"3"|default:"n/a"}</td>
+              <td class="text-right">{($myestday * 7)|number_format:"3"|default:"n/a"}</td>
               {if $GLOBAL.config.price.enabled}
               {if $GLOBAL.config.price.currency}<td class="text-right">{($myestday * $GLOBAL.price)|default:"n/a"|number_format:"4"}</td>{/if}
               {/if}
