@@ -25,7 +25,7 @@
                 <div class="circle-tile-description text-faded">
                   <p class="h5 up-more">Pool Hashrate</p>
                   <div class="circle-tile-number text-faded up">
-                    <span class="overview" id="b-poolhashrate">{$GLOBAL.hashrate|number_format}</span>
+                    <span class="overview" id="b-poolhashrate">{$GLOBAL.hashrate|number_format:"0"}</span>
                     <span class="overview-mhs"> H/m</span>
                     <br>
                     <span class="pool-hashrate-bar spark-18"></span>
