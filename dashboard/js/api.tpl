@@ -42,10 +42,10 @@ $(document).ready(function(){
   var url_balance = "{/literal}{$smarty.server.SCRIPT_NAME}?page=api&action=getuserbalance&api_key={$GLOBAL.userdata.api_key}&id={$GLOBAL.userdata.id}{literal}";
 
   // Load initial sparkline values
-  var storedPersonalHashrate = [ null, null, null, null, null, null, null, null, null, null, null, null, {/literal}{($GLOBAL.userdata.hashrate * 60 * 1000)|round:"2"}{literal} ];
-  var storedPersonalSharerate = [ null, null, null, null, null, null, null, null, null, null, null, null, {/literal}{($GLOBAL.userdata.sharerate * 60 * 1000)|round:"2"}{literal} ];
-  var storedPoolHashrate = [ null, null, null, null, null, null, null, null, null, null, null, null, {/literal}{($GLOBAL.hashrate * 60 * 1000)|round:"2"}{literal} ];
-  var storedNetHashrate = [ null, null, null, null, null, null, null, null, null, null, null, null, {/literal}{($GLOBAL.nethashrate * 60 * 1000)|round:"2"}{literal} ];
+  var storedPersonalHashrate = [ null, null, null, null, null, null, null, null, null, null, null, null, {/literal}{($GLOBAL.userdata.hashrate)|round:"2"}{literal} ];
+  var storedPersonalSharerate = [ null, null, null, null, null, null, null, null, null, null, null, null, {/literal}{($GLOBAL.userdata.sharerate)|round:"2"}{literal} ];
+  var storedPoolHashrate = [ null, null, null, null, null, null, null, null, null, null, null, null, {/literal}{($GLOBAL.hashrate)|round:"2"}{literal} ];
+  var storedNetHashrate = [ null, null, null, null, null, null, null, null, null, null, null, null, {/literal}{($GLOBAL.nethashrate)|round:"2"}{literal} ];
   var storedPoolWorkers = [ null, null, null, null, null, null, null, null, null, null, null, null, {/literal}{($GLOBAL.workers)}{literal} ];
   var storedCoinPrice = [ null, null, null, null, null, null, null, null, null, null, null, null,
                           null, null, null, null, null, null, null, null, null, null, null, null,
@@ -87,13 +87,13 @@ $(document).ready(function(){
   function refreshInformation(data) {
     // Drop one value, add the latest new one to each array
     storedPersonalHashrate.shift();
-    storedPersonalHashrate.push(parseFloat(data.getdashboarddata.data.personal.hashrate).toFixed(2))
+    storedPersonalHashrate.push(parseFloat(data.getdashboarddata.data.personal.hashrate * 1000 * 60).toFixed(2))
     storedPersonalSharerate.shift();
-    storedPersonalSharerate.push(parseFloat(data.getdashboarddata.data.personal.sharerate).toFixed(2))
+    storedPersonalSharerate.push(parseFloat(data.getdashboarddata.data.personal.sharerate * 1000 * 60).toFixed(2))
     storedPoolHashrate.shift();
-    storedPoolHashrate.push(parseFloat(data.getdashboarddata.data.pool.hashrate).toFixed(2))
+    storedPoolHashrate.push(parseFloat(data.getdashboarddata.data.pool.hashrate * 1000 * 60).toFixed(2))
     storedNetHashrate.shift();
-    storedNetHashrate.push(parseFloat(data.getdashboarddata.data.network.hashrate).toFixed(2))
+    storedNetHashrate.push(parseFloat(data.getdashboarddata.data.network.hashrate * 1000 * 60).toFixed(2))
     storedPoolWorkers.shift();
     storedPoolWorkers.push(parseFloat(data.getdashboarddata.data.pool.workers).toFixed(8));
     storedCoinPrice.shift();
