@@ -20,7 +20,7 @@
               <td>{$rank++}</td>
               <td>{$BLOCKSSOLVEDBYWORKER[block].finder|default:"unknown/deleted"|escape}</td>
               <td>{$BLOCKSSOLVEDBYWORKER[block].solvedblocks}</td>
-              <td>{$BLOCKSSOLVEDBYWORKER[block].generatedcoins|number_format}</td>
+              <td>{$BLOCKSSOLVEDBYWORKER[block].generatedcoins|number_format:"5"}</td>
             </tr>
 {/section}
           </tbody>
