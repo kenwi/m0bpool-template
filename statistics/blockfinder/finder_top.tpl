@@ -20,7 +20,7 @@
               <td>{$rank++}</td>
               <td>{if $BLOCKSSOLVEDBYACCOUNT[block].is_anonymous|default:"0" == 1 && $GLOBAL.userdata.is_admin|default:"0" == 0}anonymous{else}{$BLOCKSSOLVEDBYACCOUNT[block].finder|default:"unknown"|escape}{/if}</td>
               <td>{$BLOCKSSOLVEDBYACCOUNT[block].solvedblocks}</td>
-              <td>{$BLOCKSSOLVEDBYACCOUNT[block].generatedcoins|number_format}</td>
+              <td>{$BLOCKSSOLVEDBYACCOUNT[block].generatedcoins|number_format:"5"}</td>
             </tr>
 {/section}
           </tbody>
