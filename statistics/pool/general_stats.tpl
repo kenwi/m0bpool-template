@@ -8,7 +8,7 @@
           <tbody>
             <tr>
               <th width="50%">Pool Hash Rate</th>
-              <td width="70%"><span id="b-hashrate">{($GLOBAL.hashrate*60)|number_format:"3"}</span> kH/m {$GLOBAL.hashrate|number_format:"3"} KH/s</td>
+              <td width="70%"><span id="b-hashrate">{($GLOBAL.hashrate*60)|number_format:"3"}</span> kH/m | {$GLOBAL.hashrate|number_format:"3"} KH/s</td>
             </tr>
             <tr>
               <th>Pool Efficiency</th>
